@@ -72,6 +72,7 @@ class SegmentTree(object):
         if end < 0:
             end += self._capacity
         end -= 1
+        # assert end < self._capacity * 2
         return self._reduce_helper(start, end, 1, 0, self._capacity - 1)
 
     def __setitem__(self, idx, val):
@@ -95,7 +96,7 @@ class SumSegmentTree(SegmentTree):
     def __init__(self, capacity):
         super(SumSegmentTree, self).__init__(
             capacity=capacity,
-            operation=operator.add,
+            operation=operator.add, 
             neutral_element=0.0
         )
 
